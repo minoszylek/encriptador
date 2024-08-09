@@ -1,0 +1,20 @@
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    background-color: #e0edef;
+}
+
+:root {
+    --sm: 1.4rem;
+    --md: 1.6rem;
+    --lg: 1.8rem;
+    --xl: 2rem;
+    --primary-color: #2cbbd4;
+    
+}
+
+.primary-title {
+    font-size: 28px;
+    display: flex;
+    margin: 0 auto;
+}

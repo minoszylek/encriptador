@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
     <title>CrypticWhisper</title>
 </head>
+
 <body>
-    <h1>Ecripta tu texto</h1>
-    <textarea name="user-text" id="user-text"></textarea>
-    <div>
-        <span class="advisory">Solo letras minúsculas y sin acentos</span>
-    </div>
-    <button class="primary">Encriptar</button>
-    <button class="secundary">Desencriptar</button>
-    <div class="text output"></div>
+    <header></header>
+    <main>
+        <h1 class="primary-title">Encripta tu texto</h1>
+        <textarea name="user-text" id="user-text" placeholder="Ingrese el texto aqui" autofocus></textarea>
+        <div>
+            <span class="advisory">Solo letras minúsculas y sin acentos</span>
+        </div>
+        <button onclick="encriptarTexto();" class="primary">Encriptar</button>
+        <button class="secundary">Desencriptar</button>
+        <div class="text output">
+            <span id="output"></span>
+        </div>
+    </main>
+
+    <footer>
+        <p>Powered by</p>
+
+    </footer>
+    <script src="app.js"></script>
 </body>
+
 </html>
