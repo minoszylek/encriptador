@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="main.css">
     <title>CrypticWhisper</title>
 </head>
@@ -12,15 +14,25 @@
     <header></header>
     <main>
         <h1 class="primary-title">Encripta tu texto</h1>
-        <textarea name="user-text" id="user-text" placeholder="Ingrese el texto aqui" autofocus></textarea>
-        <div>
-            <span class="advisory">Solo letras minúsculas y sin acentos</span>
+
+        <div class="content">
+            <div class="div-textarea">
+                <textarea name="user-text" class="text-area" id="user-text" placeholder="Ingrese el texto aquí"
+                autofocus></textarea>
+                <span class="advisory">Solo letras minúsculas y sin acentos</span>
+                <div class="div-buttons">
+                    <button onclick="encryptText();" class="primary-button">ENCRIPTAR</button>
+                    <button onclick="decryptText();" class="primary-button">DESENCRIPTAR</button>
+                </div>
+                
+            </div>
+            
+            <div class="text-output">
+                <textarea id="output" placeholder="" disabled></textarea>
+                <img src="./assets/Muneco.svg" alt="Imagen de un chico con una lupa">
+            </div>
         </div>
-        <button onclick="encryptText();" class="primary">Encriptar</button>
-        <button onclick="decryptText();" class="secundary">Desencriptar</button>
-        <div class="text output">
-            <span id="output"></span>
-        </div>
+        
     </main>
 
     <footer>

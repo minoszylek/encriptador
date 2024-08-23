@@ -1,20 +1,106 @@
-html {
-    font-size: 62.5%;
-    box-sizing: border-box;
-    background-color: #e0edef;
-}
-
 :root {
+    --font-principal: 'Montserrat';
     --sm: 1.4rem;
     --md: 1.6rem;
     --lg: 1.8rem;
     --xl: 2rem;
+    --text-2xl: 4rem;
     --primary-color: #2cbbd4;
+    --secundary-color: white;
+    --details-color: #e0edef;
+    --shadows: rgba(11, 126, 146, 0.7);    
+}
+html {
+    font-family: var(--font-principal);
+    font-size: 62.5%;
+    box-sizing: border-box;
+    background-color: var(--details-color);
+    height: 100%;
+}
+body {
+    height: 100%;
+    margin: 0 2%;
     
 }
-
 .primary-title {
-    font-size: 28px;
+    font-family: var(--font-principal);
+    font-size: var(--text-2xl);
+    font-weight: 600;
     display: flex;
-    margin: 0 auto;
+    justify-content: center;
+}
+.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 0.8rem;
+    padding: 0 0 0 4rem;
+}
+.div-textarea {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    
+}
+.text-area{
+    font-size: 3.2rem;
+    font-family: var(--font-principal);
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    min-height: 40rem;
+}
+.text-area::placeholder{
+
+    font-size: 2.5rem;
+}
+.text-area:focus-visible {
+    border: none;
+    outline: none;
+}
+.advisory{
+    font-size: var(--sm);
+}
+.primary-button {
+    font-family: var(--font-principal);
+    font-weight: 600;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 2rem;
+    box-shadow: -0.4rem 0.6rem 0.2rem var(--shadows);
+    padding: 1.2rem 4rem;
+    margin: 1.2rem;
+}
+.primary-button:hover {
+    background-color: var(--secundary-color);
+}
+.primary-button:active {
+    background-color: var(--details-color);
+}
+.div-buttons {
+    display: flex;
+    justify-content:center;
+}
+.text-output {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--secundary-color);
+    width: 30%;
+    padding: 2% 2%;
+    border-radius: 3.2rem;
+    box-shadow: -0.6rem 0.6rem 0.3rem var(--shadows);
+    box-sizing: border-box;
+}
+#output {
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    font-size: var(--md);
+    height: 80%;
+    width: 100%;
+}
+.text-output img {
+   width: 100%;
 }
