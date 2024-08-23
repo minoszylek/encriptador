@@ -83,3 +83,9 @@ function decryptText() {
   print.innerHTML = output;
   console.log(output);
 }
+
+function copyText() {
+  let textCopy = document.getElementById("output")
+  navigator.clipboard.writeText(textCopy.value)
+  console.log(textCopy.value)
+}
