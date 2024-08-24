@@ -1,43 +1,7 @@
 let userText = document.getElementById("user-text");
 let outputProcess = [];
-/*
-//Recibe el texto del usuario y lo encripta.
-function encryptText() {
-  outputProcess = [];
-  let text = userText.value.toLowerCase();
-  console.log("escritura del usaurio = " + text);
-  let print = document.getElementById("output");
-  // Evalua si el texto contiene las vocales y las reemplaza por su llave correspondiente.
-  let i = 0;
-  while (i < text.length) {
-    switch (text[i]) {
-      case "a":
-        outputProcess.push("ai");
-        break;
-      case "e":
-        outputProcess.push("enter");
-        break;
-      case "i":
-        outputProcess.push("imes");
-        break;
-      case "o":
-        outputProcess.push("ober");
-        break;
-      case "u":
-        outputProcess.push("ufat");
-        break;
-      default:
-        outputProcess.push(text[i]);
-    }
 
-    console.log(outputProcess);
-    i++;
-  }
-  print.innerHTML = outputProcess.join("");
-  console.log(outputProcess.join(""));
-}
-*/
-
+//Función para encriptar.
 function encryptText() {
   outputProcess = [];
   let text = userText.value.toLowerCase();
@@ -58,31 +22,67 @@ function encryptText() {
     })
     .join("");
   outputProcess.push(output);
-  print.innerHTML = outputProcess.join("");
+  if(text !== ""){
+    clearElements();
+    print.innerHTML = outputProcess.join("");
+  } else {
+    loadElements()
+  }
 }
-
+//Función para desencriptar.
 function decryptText() {
   let text = userText.value.toLowerCase();
   let print = document.getElementById("output");
   let output = text;
-  //Diccionario para descifrar.
-  const diccionary = {
-    enter: "e",
-    imes: "i",
-    ai: "a",
-    ober: "o",
-    ufat: "u",
-  };
-  //Usa las claves del diccinario para reemplazar dentro del String los datos cifrados por las vocales correspondientes.
-  Object.keys(diccionary).forEach((clave) => {
-    const valor = diccionary[clave];
-    const filter = RegExp(clave, "g"); //Expresión regular para reemplazar de forma global.
-    output = output.replace(filter, valor);
-  });
-  print.innerHTML = output;
-}
-
+    //Diccionario para descifrar.
+    const diccionary = {
+      enter: "e",
+      imes: "i",
+      ai: "a",
+      ober: "o",
+      ufat: "u",
+    };
+    //Usa las claves del diccinario para reemplazar dentro del String los datos cifrados por las vocales correspondientes.
+    Object.keys(diccionary).forEach((clave) => {
+      const valor = diccionary[clave];
+      const filter = RegExp(clave, "g"); //Expresión regular para reemplazar de forma global.
+      output = output.replace(filter, valor);
+    }); 
+    if(text !== ""){
+      clearElements();
+      print.innerHTML = output;
+    } else {
+      loadElements();
+    }
+  }
+//Función para copiar el texto en la salida.
 function copyText() {
-  let textCopy = document.getElementById("output")
-  navigator.clipboard.writeText(textCopy.value)
+  let textCopy = document.getElementById("output");
+  navigator.clipboard.writeText(textCopy.value);
+}
+//Función para ajustar los elementos que no deben verse.
+function clearElements() {
+  let span = document.querySelector(".text-output span");
+  let image = document.querySelector(".text-output img");
+  let button = document.querySelector(".text-output button");
+  let textarea = document.querySelector("#output");
+  let divoutput = document.querySelector(".text-output");
+  divoutput.style.justifyContent = "space-between"; 
+  textarea.style.display = "flex";
+  image.style.display = "none";
+  span.style.display = "none";
+  button.style.display = "inline-block"
+}
+// Función para cargar los elementos cuando no hay texto.
+function loadElements() {
+  let span = document.querySelector(".text-output span");
+  let image = document.querySelector(".text-output img");
+  let button = document.querySelector(".text-output button");
+  let textarea = document.querySelector("#output");
+  let divoutput = document.querySelector(".text-output");
+  divoutput.style.justifyContent = "center";
+  textarea.style.display = "none";
+  image.style.display = "block";
+  span.style.display = "block";
+  button.style.display = "none";
 }
