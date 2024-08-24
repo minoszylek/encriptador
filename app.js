@@ -59,7 +59,6 @@ function encryptText() {
     .join("");
   outputProcess.push(output);
   print.innerHTML = outputProcess.join("");
-  console.log(output);
 }
 
 function decryptText() {
@@ -81,11 +80,9 @@ function decryptText() {
     output = output.replace(filter, valor);
   });
   print.innerHTML = output;
-  console.log(output);
 }
 
 function copyText() {
   let textCopy = document.getElementById("output")
   navigator.clipboard.writeText(textCopy.value)
-  console.log(textCopy.value)
 }

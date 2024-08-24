@@ -11,16 +11,17 @@
     --shadows: rgba(11, 126, 146, 0.7);    
 }
 html {
+    margin: 0;
     font-family: var(--font-principal);
     font-size: 62.5%;
     box-sizing: border-box;
     background-color: var(--details-color);
-    height: 100%;
 }
 body {
-    height: 100%;
-    margin: 0 2%;
-    
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
 }
 .primary-title {
     font-family: var(--font-principal);
@@ -33,14 +34,16 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 0 0.8rem;
+    margin: 0 auto;
     padding: 0 0 0 4rem;
+    max-width: 102.4rem;
 }
 .div-textarea {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 60%;
-    
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .text-area{
     font-size: 3.2rem;
@@ -51,15 +54,20 @@ body {
     min-height: 40rem;
 }
 .text-area::placeholder{
-
     font-size: 2.5rem;
 }
 .text-area:focus-visible {
     border: none;
     outline: none;
 }
-.advisory{
+.advisory {
+    display: grid;
+    align-items: center;
     font-size: var(--sm);
+}
+.div-buttons {
+    display: flex;
+    justify-content:center;
 }
 .primary-button {
     font-family: var(--font-principal);
@@ -77,9 +85,25 @@ body {
 .primary-button:active {
     background-color: var(--details-color);
 }
-.div-buttons {
-    display: flex;
-    justify-content:center;
+.secundary-button {
+    font-family: var(--font-principal);
+    font-weight: 600;
+    background-color: var(--details-color);
+    border: none;
+    border-radius: 2rem;
+    box-shadow: -0.4rem 0.6rem 0.2rem var(--shadows);
+    border: 0.2rem solid var(--primary-color);
+    padding: 1.2rem 4rem;
+    margin: 1.2rem;
+}
+.secundary-button:hover {
+    background-color: var(--primary-color);
+    border: 0.2rem solid var(--details-color);
+}
+.secundary-button:active {
+    box-sizing: border-box;
+    border: 0.2rem solid var(--primary-color);
+    background-color: var(--secundary-color);
 }
 .text-output {
     display: flex;
@@ -103,4 +127,14 @@ body {
 }
 .text-output img {
    width: 100%;
+}
+footer {
+    font-family: 'Roboto';
+    font-size: var(--sm);
+    text-align: center;
+    display: block;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: var(--primary-color);
 }

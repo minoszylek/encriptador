@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="main.css">
     <title>CrypticWhisper</title>
 </head>
@@ -18,26 +20,28 @@
         <div class="content">
             <div class="div-textarea">
                 <textarea name="user-text" class="text-area" id="user-text" placeholder="Ingrese el texto aquí"
-                autofocus></textarea>
+                    autofocus></textarea>
+                    <span class="material-symbols-outlined">error
+                        </span>
                 <span class="advisory">Solo letras minúsculas y sin acentos</span>
                 <div class="div-buttons">
                     <button onclick="encryptText();" class="primary-button">ENCRIPTAR</button>
-                    <button onclick="decryptText();" class="primary-button">DESENCRIPTAR</button>
+                    <button onclick="decryptText();" class="secundary-button">DESENCRIPTAR</button>
                 </div>
-                
+
             </div>
-            
+
             <div class="text-output">
                 <textarea id="output" placeholder="" disabled></textarea>
                 <img src="./assets/Muneco.svg" alt="Imagen de un chico con una lupa">
                 <button onclick="copyText();" class="secundary-button">Copiar</button>
             </div>
         </div>
-        
+
     </main>
 
     <footer>
-        <p>Powered by</p>
+        <p>Powered by <b>Andrés Montiel</b></p>
 
     </footer>
     <script src="app.js"></script>
