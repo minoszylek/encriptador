@@ -19,24 +19,31 @@ html {
 }
 body {
     min-height: 100vh;
+    height: auto;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
     margin: 0;
 }
 .primary-title {
+    text-align: center;
     font-family: var(--font-principal);
     font-size: var(--text-2xl);
     font-weight: 600;
-    display: flex;
-    justify-content: center;
 }
 .content{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    overflow: auto;
+    height: auto;
     margin: 0 auto;
-    padding: 0 0 0 4rem;
+    padding: 0 2rem 1rem 4rem;
     max-width: 102.4rem;
+}
+.content div {
+    display: flex;
+    align-items: center;
 }
 .div-textarea {
     display: flex;
@@ -52,7 +59,7 @@ body {
     background-color: transparent;
     border: none;
     width: 100%;
-    min-height: 40rem;
+    min-height: 30rem;
 }
 .text-area::placeholder{
     font-size: 2.5rem;
@@ -67,11 +74,13 @@ body {
     font-size: var(--sm);
 }
 .div-buttons {
+    height: auto;
     display: flex;
     justify-content:center;
 }
 .primary-button {
     font-family: var(--font-principal);
+    color: black;
     font-weight: 600;
     background-color: var(--primary-color);
     border: none;
@@ -88,6 +97,7 @@ body {
 }
 .secundary-button {
     font-family: var(--font-principal);
+    color: black;
     font-weight: 600;
     background-color: var(--details-color);
     border: none;
@@ -127,7 +137,7 @@ body {
     text-align: center;
     background-color: transparent;
     border: none;
-    display: flex;
+    display: none;
     font-size: var(--md);
     height: 80%;
     width: 100%;
@@ -144,7 +154,61 @@ footer {
     text-align: center;
     display: block;
     width: 100%;
-    position: absolute;
-    bottom: 0;
+    position: sticky;
+    bottom: 0; 
     background-color: var(--primary-color);
+}
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+        margin: 0 3%;
+        padding: 1rem 1rem;
+    }
+    .content div {
+        justify-content: center;
+        width: 100%;
+    }
+    .div-textarea {
+        width: 100%;
+    }
+    .primary-button:hover {
+        background-color: var(--primary-color);
+    }
+    .secundary-button:hover {
+        background-color: var(--details-color);
+    }
+    .text-output {
+        min-height: 10rem;
+        width: 100%;
+        margin: 1.2rem 0;
+    }
+    .text-output img {
+        width: 0;
+        display: none;
+    } 
+    .text-output button {
+        width: 95%;
+        height: 5rem;
+    }
+
+}
+@media (max-width: 460px) {
+    .primary-title {
+        font-size: var(--xl);
+    }
+    .text-area {
+        font-size: var(--xl);
+    }
+    .text-area::placeholder{
+        padding-top: 1rem;
+        font-size: 2rem;
+        text-align: center;
+    }
+    .div-buttons {
+        flex-direction: column;
+    }
+    .primary-button, .secundary-button {
+        width: 90%;
+    }
 }

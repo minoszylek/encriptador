@@ -1,9 +1,15 @@
 let userText = document.getElementById("user-text");
-let outputProcess = [];
+const outputProcess = [];
+let textarea = document.querySelector("#output");
+let span = document.querySelector(".text-output span");
+let image = document.querySelector(".text-output img");
+let button = document.querySelector(".text-output button");
+let divoutput = document.querySelector(".text-output");
+
 
 //Función para encriptar.
 function encryptText() {
-  outputProcess = [];
+  outputProcess.length = 0;
   let text = userText.value.toLowerCase();
   let print = document.getElementById("output");
   //Diccionario de cifrado.
@@ -25,6 +31,7 @@ function encryptText() {
   if(text !== ""){
     clearElements();
     print.innerHTML = outputProcess.join("");
+    automaticallyAdjustHeight();
   } else {
     loadElements()
   }
@@ -32,7 +39,6 @@ function encryptText() {
 //Función para desencriptar.
 function decryptText() {
   let text = userText.value.toLowerCase();
-  let print = document.getElementById("output");
   let output = text;
     //Diccionario para descifrar.
     const diccionary = {
@@ -50,7 +56,8 @@ function decryptText() {
     }); 
     if(text !== ""){
       clearElements();
-      print.innerHTML = output;
+      textarea.innerHTML = output;
+      automaticallyAdjustHeight();
     } else {
       loadElements();
     }
@@ -62,11 +69,6 @@ function copyText() {
 }
 //Función para ajustar los elementos que no deben verse.
 function clearElements() {
-  let span = document.querySelector(".text-output span");
-  let image = document.querySelector(".text-output img");
-  let button = document.querySelector(".text-output button");
-  let textarea = document.querySelector("#output");
-  let divoutput = document.querySelector(".text-output");
   divoutput.style.justifyContent = "space-between"; 
   textarea.style.display = "flex";
   image.style.display = "none";
@@ -75,14 +77,14 @@ function clearElements() {
 }
 // Función para cargar los elementos cuando no hay texto.
 function loadElements() {
-  let span = document.querySelector(".text-output span");
-  let image = document.querySelector(".text-output img");
-  let button = document.querySelector(".text-output button");
-  let textarea = document.querySelector("#output");
-  let divoutput = document.querySelector(".text-output");
   divoutput.style.justifyContent = "center";
   textarea.style.display = "none";
   image.style.display = "block";
   span.style.display = "block";
   button.style.display = "none";
+}
+function automaticallyAdjustHeight() {
+  textarea.style.height = 'auto';
+  // Ajustar la altura al contenido
+  textarea.style.height = `${textarea.scrollHeight}px`;
 }
